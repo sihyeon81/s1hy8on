@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>해파리</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+            cursor: none; /* 기본 커서 숨김 */
+            background-color: #f0f8ff;
+        }
+
+        /* 해파리 커서 스타일 */
+        #jellyfish-cursor {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            z-index: 9999;
+            background: url('jellyfish.png') no-repeat center center;
+            background-size: contain;
+        }
+
+        /* 모바일 해파리 커서 크기 조정 */
+        @media (max-width: 768px) {
+            #jellyfish-cursor {
+                width: 50px;
+                height: 50px;
+            }
+        }
+
+        /* SVG 메뉴 스타일 */
+        .menu {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+        }
+
+        svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        path {
+            cursor: none;
+            transition: opacity 0.3s ease;
+        }
+        path:hover {
+            opacity: 0.8;
+        }
+
+        /* 반응형 메뉴 조정 */
+        @media (max-width: 768px) {
+            .menu svg {
+                height: 80%;
+            }
+        }
+
+        /* 섹션 스타일 */
+        section {
+            height: 100vh;
+            text-align: center;
+            font-size: 2rem;
+            padding-top: 20%;
+        }
+        #section1 { background-color: #a2d8ff; }
+        #section2 { background-color: #6eb4ff; }
+        #section3 { background-color: #4885ff; }
+        #section4 { background-color: #0048ba; color: #fff; }
+    </style>
+</head>
+<body>
+    <div id="jellyfish-cursor"></div>
+
+    <div class="menu">
+        <svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+            <a href="https://blog.naver.com/581221_" target="_blank">
+                <path d="M0,0 C200,100 400,0 800,0 L800,100 L0,100 Z" fill="#b3e5fc"></path>
+            </a>
+            <a href="https://www.youtube.com/@s1hy8on" target="_blank">
+                <path d="M0,100 C200,200 400,100 800,100 L800,200 L0,200 Z" fill="#64b5f6"></path>
+            </a>
+            <a href="https://www.instagram.com/m8rma1d/" target="_blank">
+                <path d="M0,200 C200,300 400,200 800,200 L800,300 L0,300 Z" fill="#42a5f5"></path>
+            </a>
+            <a href="https://www.instagram.com/s1hy8on/" target="_blank">
+                <path d="M0,300 C200,400 400,300 800,300 L800,400 L0,400 Z" fill="#0d47a1"></path>
+            </a>
+        </svg>
+    </div>
+
+    <section id="section1">섹션 1: <a href="https://www.seoul284.org/main" target="_blank">Seoul 284</a></section>
+    <section id="section2">섹션 2: <a href="https://www.dstrict.com" target="_blank">Dstrict</a></section>
+    <section id="section3">섹션 3: <a href="http://xn--2z1b94xgrdzc50a.com/" target="_blank">특수 링크</a></section>
+    <section id="section4">섹션 4: <a href="https://www.instagram.com/s1hy8on/" target="_blank">Instagram</a></section>
+
+    <script>
+        const cursor = document.getElementById('jellyfish-cursor');
+        document.addEventListener('mousemove', (e) => {
+            const x = e.clientX;
+            const y = e.clientY;
+            cursor.style.left = `${x}px`;
+            cursor.style.top = `${y}px`;
+        });
+    </script>
+</body>
+</html>
